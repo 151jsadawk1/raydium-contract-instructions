@@ -1,6 +1,7 @@
 //! State transition types
 
 use solana_program::pubkey::Pubkey;
+use borsh::BorshDeserialize;
 
 #[repr(u64)]
 pub enum AmmStatus {
@@ -31,7 +32,7 @@ pub enum AmmState {
 
 #[cfg_attr(feature = "client", derive(Debug))]
 #[repr(C)]
-#[derive(Clone, Copy, Default, PartialEq)]
+#[derive(Clone, Copy, Default, PartialEq, BorshDeserialize)]
 pub struct AmmInfo {
     /// 1 Initialized status.
     pub status: u64,
